@@ -21,6 +21,7 @@ const App = () => {
     try {
       const response = await API.graphql(graphqlOperation(listTodos));
       const todos = response.data.listTodos.items;
+
       setTodos(todos);
     } catch (error) {
       console.log(`Failed to fetch todos, error:${error}`);
