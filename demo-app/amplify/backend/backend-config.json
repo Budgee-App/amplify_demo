@@ -1,28 +1,35 @@
 {
-  "api": {
-    "demoapp": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
-      "output": {
-        "authConfig": {
-          "defaultAuthentication": {
-            "authenticationType": "API_KEY",
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 7,
-              "description": "demo app api key"
+    "api": {
+        "demoapp": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "authConfig": {
+                    "defaultAuthentication": {
+                        "authenticationType": "API_KEY",
+                        "apiKeyConfig": {
+                            "apiKeyExpirationDays": 7,
+                            "description": "demo app api key"
+                        }
+                    },
+                    "additionalAuthenticationProviders": []
+                }
             }
-          },
-          "additionalAuthenticationProviders": []
         }
-      }
+    },
+    "auth": {
+        "demoappb4ffb0a3": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [],
+            "customAuth": false
+        }
+    },
+    "hosting": {
+        "amplifyhosting": {
+            "service": "amplifyhosting",
+            "providerPlugin": "awscloudformation",
+            "type": "manual"
+        }
     }
-  },
-  "auth": {
-    "demoappb4ffb0a3": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "customAuth": false
-    }
-  }
 }
